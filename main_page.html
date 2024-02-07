@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>choose your fate</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      h1 {
+        font-family: "Lucida Console", "Courier New", monospace;
+        color: black;
+        text-align: center;
+        margin-bottom: 0;
+      }
+      
+      h3 {
+        font-family: "Lucida Console", "Courier New", monospace;
+        color: black;
+        text-align: center;
+        margin-bottom: 0;
+      }
+        .nocontainer {
+          display: none;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: white;
+          padding: 20px;
+          border: 1px solid black;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        .nocontainer img {
+          max-width: 100%;
+          height: auto;
+          display: block;
+          margin-bottom: 10px;
+        }
+
+    
+        .buttons {
+          text-align: center;
+        }
+    
+        .yes {
+          padding: 7.5px 20px;
+          background-color: green;
+          color: white;
+          border: none;
+          cursor: pointer;
+          text-decoration: none;
+        }
+    
+        .no {
+          padding: 10px 20px;
+          background-color: red;
+          color: white;
+          border: none;
+          cursor: pointer;
+        }
+    
+        .close-btn {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
+        }
+      </style>
+</head>
+  <body>
+    <h1>Will you be my valentine?</h1>
+    <div class="buttons">
+      <a class="yes" href="chooseYes.html">Yes</a>
+      <button class="no" onclick="openContainerNo()">No</button>
+    </div>
+  
+    <div class="nocontainer" id="nocontainer">
+        <h3> choose again! >:( </h3>
+      <span class="close-btn" onclick="closeContainerNo()">&times;</span>
+      <img src="angry.gif" alt="Image">
+    </div>
+
+  
+    <script>
+        function openContainerNo() {
+        document.getElementById("nocontainer").style.display = "block";
+        makeYesBigger();
+        }
+
+        function closeContainerNo() {
+        document.getElementById("nocontainer").style.display = "none";
+        }
+
+        function makeYesBigger() {
+        var yesButton = document.querySelector(".yes");
+        var currentFontSize = window.getComputedStyle(yesButton).getPropertyValue('font-size');
+        var currentSize = parseFloat(currentFontSize);
+        yesButton.style.fontSize = (currentSize + 4) + 'px';
+        }
+    </script>
+  </body>
+</html>
